@@ -10,10 +10,10 @@ import random
 class Snowflake:
 
 	def __init__(self, x=0.0, y=0.0, z=0.0):
-		self.num_twigs = random.randint(0, 4) + 3
+		self.num_twigs = random.randint(0, 3) + 3
 		self.pinkie_length = 0.5 + random.random() / 2.0
 		self.branch_length = 1.0 + random.random()
-		self.segments = random.randint(0, 4) + 2
+		self.segments = random.randint(0, 3) + 2
 		self.x = x
 		self.y = y
 		self.z = z
