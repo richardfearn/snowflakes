@@ -72,21 +72,21 @@ class Snowflake:
 		
 		glPushMatrix()
 		glRotated(90, 1.0, 0.0, 0.0)
-		self.draw_branch(self.pinkie_length / 1.25, self.branch_length / 1.25);
+		self.draw_branch(self.pinkie_length / 1.25, self.branch_length / 1.25)
 		glRotated(90, 0.0, 1.0, 0.0)
-		self.draw_branch(self.pinkie_length / 1.25, self.branch_length / 1.25);
-		self.draw_twig(0.05, self.branch_length / 1.25, 12);
+		self.draw_branch(self.pinkie_length / 1.25, self.branch_length / 1.25)
+		self.draw_twig(0.05, self.branch_length / 1.25, 12)
 		
-		glRotated(-180, 1.0, 0.0, 0.0);
-		self.draw_branch(self.pinkie_length / 1.25, self.branch_length / 1.25);
-		glRotated(90, 0.0, 1.0, 0.0);
-		self.draw_branch(self.pinkie_length / 1.25, self.branch_length / 1.25);
-		self.draw_twig(0.05, self.branch_length / 1.25, 12);
-		glPopMatrix();
+		glRotated(-180, 1.0, 0.0, 0.0)
+		self.draw_branch(self.pinkie_length / 1.25, self.branch_length / 1.25)
+		glRotated(90, 0.0, 1.0, 0.0)
+		self.draw_branch(self.pinkie_length / 1.25, self.branch_length / 1.25)
+		self.draw_twig(0.05, self.branch_length / 1.25, 12)
+		glPopMatrix()
 		
-		glDisable(GL_BLEND);
-		glDisable(GL_COLOR_MATERIAL);
-		glPopMatrix();
+		glDisable(GL_BLEND)
+		glDisable(GL_COLOR_MATERIAL)
+		glPopMatrix()
 	
 	def spin(self, xdelta, ydelta, zdelta):
 		self.xspin += xdelta
@@ -94,25 +94,25 @@ class Snowflake:
 		self.zspin += zdelta
 
 glutInit()
-glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH)
 glutInitWindowSize(1500,500)
-glutCreateWindow('snowflake');
-glLightfv(GL_LIGHT0, GL_DIFFUSE, [.9, .9, 1.0, 1.0]);
-glLightfv(GL_LIGHT0, GL_POSITION, [1.0, 1.0, 1.0, 0.0]);
-glEnable(GL_LIGHT0);
-glEnable(GL_LIGHTING);
-glEnable(GL_CULL_FACE);
-glShadeModel(GL_SMOOTH);
-glClearColor(1.0, 1.0, 1.0, 0.0);
-glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+glutCreateWindow('snowflake')
+glLightfv(GL_LIGHT0, GL_DIFFUSE, [.9, .9, 1.0, 1.0])
+glLightfv(GL_LIGHT0, GL_POSITION, [1.0, 1.0, 1.0, 0.0])
+glEnable(GL_LIGHT0)
+glEnable(GL_LIGHTING)
+glEnable(GL_CULL_FACE)
+glShadeModel(GL_SMOOTH)
+glClearColor(1.0, 1.0, 1.0, 0.0)
+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 
-glEnable(GL_DEPTH_TEST);
+glEnable(GL_DEPTH_TEST)
 
 flakes = [Snowflake(x=i, z=-5.0) for i in (2.0, 0.0, -2.0)]
 
 def display():
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glLoadIdentity();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+	glLoadIdentity()
 	
 	for f in flakes:
 		f.draw()
@@ -130,11 +130,11 @@ def reshape(x, y):
 	if (x == 0) or (y == 0):
 		return
 	
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(30.0, x / y, 0.5, 20.0);
-	glMatrixMode(GL_MODELVIEW);
-	glViewport(0, 0, x, y);
+	glMatrixMode(GL_PROJECTION)
+	glLoadIdentity()
+	gluPerspective(30.0, x / y, 0.5, 20.0)
+	glMatrixMode(GL_MODELVIEW)
+	glViewport(0, 0, x, y)
 
 glutDisplayFunc(display)
 glutIdleFunc(idle)
