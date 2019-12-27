@@ -111,7 +111,7 @@ glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 
 glEnable(GL_DEPTH_TEST)
 
-flakes = [Snowflake(z=-5.0, x=i) for i in (2.0, 0.0, -2.0)]
+flakes = [Snowflake(z=-5.0, x=x) for x in (2.0, 0.0, -2.0)]
 
 
 def display():
