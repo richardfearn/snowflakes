@@ -1,4 +1,4 @@
-#!/usr/bin/python3 -tt
+#! /usr/bin/env python3
 
 from OpenGL.GL import *
 from OpenGL.GLU import *
